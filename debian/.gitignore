@@ -1,0 +1,4 @@
+*.debhelper.log
+*.substvars
+golang-blackfriday-dev/
+files
