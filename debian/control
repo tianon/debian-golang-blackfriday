@@ -11,7 +11,7 @@ Vcs-Browser: http://anonscm.debian.org/cgit/pkg-go/packages/golang-blackfriday.g
 
 Package: golang-blackfriday-dev
 Architecture: all
-Depends: ${misc:Depends}, ${shlibs:Depends}
+Depends: golang-go.net-dev, ${misc:Depends}, ${shlibs:Depends}
 Built-Using: ${misc:Built-Using}
 Description: Blackfriday: a markdown processor for Go
  Blackfriday is a Markdown processor implemented in Go. It is paranoid about its
