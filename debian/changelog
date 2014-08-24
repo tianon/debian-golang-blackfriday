@@ -1,5 +1,5 @@
-golang-blackfriday (1.2-1) UNRELEASED; urgency=medium
+golang-blackfriday (1.2-1) unstable; urgency=medium
 
   * Initial release.
 
- -- Tianon Gravi <admwiggin@gmail.com>  Tue, 22 Apr 2014 23:04:32 -0400
+ -- Tianon Gravi <admwiggin@gmail.com>  Sat, 23 Aug 2014 22:40:58 -0400
