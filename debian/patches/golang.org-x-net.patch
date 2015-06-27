@@ -1,0 +1,17 @@
+Author: Tianon Gravi <admwiggin@gmail.com>
+Description: replace "code.google.com/p/go.net" with the canonical "golang.org/x/net"
+
+Index: golang-blackfriday/sanitize.go
+===================================================================
+--- golang-blackfriday.orig/sanitize.go
++++ golang-blackfriday/sanitize.go
+@@ -3,8 +3,8 @@ package blackfriday
+ import (
+ 	"bufio"
+ 	"bytes"
+-	"code.google.com/p/go.net/html"
+ 	"fmt"
++	"golang.org/x/net/html"
+ 	"io"
+ )
+ 
