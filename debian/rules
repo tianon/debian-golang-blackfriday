@@ -4,7 +4,15 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 export DH_GOPKG := github.com/russross/blackfriday
-export DH_GOLANG_INSTALL_ALL := 1
+#export DH_GOLANG_INSTALL_ALL := 1
 
 %:
 	dh $@ --buildsystem=golang --with=golang
+
+BUILDDIR := $(shell perl -w -MDebian::Debhelper::Buildsystem::golang -e \
+        'print Debian::Debhelper::Buildsystem::golang->new()->get_builddir()')
+
+override_dh_auto_configure:
+	dh_auto_configure -O--buildsystem=golang
+	# Include test fixtures.
+	cp -av upskirtref/ $(BUILDDIR)/src/$(DH_GOPKG)/
