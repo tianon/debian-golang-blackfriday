@@ -2,9 +2,10 @@ Source: golang-blackfriday
 Section: devel
 Priority: extra
 Maintainer: Debian Go Packaging Team <pkg-go-maintainers@lists.alioth.debian.org>
-Uploaders: Tianon Gravi <admwiggin@gmail.com>
+Uploaders: Tianon Gravi <admwiggin@gmail.com>,
+ Martín Ferrari <tincho@debian.org>
 Build-Depends: debhelper (>= 9), dh-golang, golang-go, golang-go.net-dev
-Standards-Version: 3.9.5
+Standards-Version: 3.9.6
 Homepage: https://github.com/russross/blackfriday
 Vcs-Git: git://anonscm.debian.org/pkg-go/packages/golang-blackfriday.git
 Vcs-Browser: http://anonscm.debian.org/cgit/pkg-go/packages/golang-blackfriday.git

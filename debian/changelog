@@ -7,6 +7,8 @@ golang-blackfriday (1.2-2) UNRELEASED; urgency=medium
   [ Martín Ferrari ]
   * debian/control: Set pkg-go as maintainer, add package name to
     description.
+  * debian/control, debian/copyright: Bumped Standards-Version with no changes
+    needed; added myself as uploader.
 
  -- Tianon Gravi <admwiggin@gmail.com>  Sat, 27 Jun 2015 22:59:53 +0000
 
