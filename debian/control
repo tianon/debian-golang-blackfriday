@@ -1,8 +1,8 @@
 Source: golang-blackfriday
 Section: devel
 Priority: extra
-Maintainer: Tianon Gravi <admwiggin@gmail.com>
-Uploaders: Docker Packaging Team <docker-maint@lists.alioth.debian.org>
+Maintainer: Debian Go Packaging Team <pkg-go-maintainers@lists.alioth.debian.org>
+Uploaders: Tianon Gravi <admwiggin@gmail.com>
 Build-Depends: debhelper (>= 9), dh-golang, golang-go, golang-go.net-dev
 Standards-Version: 3.9.5
 Homepage: https://github.com/russross/blackfriday
@@ -14,14 +14,13 @@ Architecture: all
 Depends: golang-go.net-dev, ${misc:Depends}
 Built-Using: ${misc:Built-Using}
 Description: Blackfriday: a markdown processor for Go
- Blackfriday is a Markdown processor implemented in Go. It is paranoid about its
- input (so you can safely feed it user-supplied data), it is fast, it supports
- common extensions (tables, smart punctuation substitutions, etc.), and it is
- safe for all utf-8 (unicode) input.
+ Blackfriday (github.com/russross/blackfriday) is a Markdown processor
+ implemented in Go. It is paranoid about its input (so you can safely feed it
+ user-supplied data), it is fast, it supports common extensions (tables, smart
+ punctuation substitutions, etc.), and it is safe for all utf-8 (unicode)
+ input.
  .
  HTML output is currently supported, along with Smartypants extensions. An
  experimental LaTeX output engine is also included.
  .
  It started as a translation from C of upskirt.
- .
- This package contains the source.
