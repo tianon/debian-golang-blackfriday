@@ -10,6 +10,7 @@ golang-blackfriday (1.2-2) UNRELEASED; urgency=medium
   * debian/control, debian/copyright: Bumped Standards-Version with no changes
     needed; added myself as uploader.
   * debian/rules: Don't install superfluous files (solves a lintian error).
+  * debian/gbp.conf: Enable pristine-tar usage.
 
  -- Tianon Gravi <admwiggin@gmail.com>  Sat, 27 Jun 2015 22:59:53 +0000
 
