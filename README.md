@@ -1,4 +1,4 @@
-Blackfriday
+Blackfriday [![Build Status](https://travis-ci.org/russross/blackfriday.svg?branch=master)](https://travis-ci.org/russross/blackfriday)
 ===========
 
 Blackfriday is a [Markdown][1] processor implemented in [Go][2]. It
@@ -10,7 +10,7 @@ punctuation substitutions, etc.), and it is safe for all utf-8
 HTML output is currently supported, along with Smartypants
 extensions. An experimental LaTeX output engine is also included.
 
-It started as a translation from C of [upskirt][3].
+It started as a translation from C of [Sundown][3].
 
 
 Installation
@@ -26,13 +26,12 @@ With Go 1 and git installed:
     go get github.com/russross/blackfriday
 
 will download, compile, and install the package into your `$GOPATH`
-directory hierarchy. Alternatively, you can import it into a
-project:
+directory hierarchy. Alternatively, you can achieve the same if you
+import it into a project:
 
     import "github.com/russross/blackfriday"
 
-and when you build that project with `go build`, blackfriday will be
-downloaded and installed automatically.
+and `go get` without parameters.
 
 Usage
 -----
@@ -46,6 +45,28 @@ This renders it with no extensions enabled. To get a more useful
 feature set, use this instead:
 
     output := blackfriday.MarkdownCommon(input)
+
+### Sanitize untrusted content
+
+Blackfriday itself does nothing to protect against malicious content. If you are
+dealing with user-supplied markdown, we recommend running blackfriday's output
+through HTML sanitizer such as
+[Bluemonday](https://github.com/microcosm-cc/bluemonday).
+
+Here's an example of simple usage of blackfriday together with bluemonday:
+
+``` go
+import (
+    "github.com/microcosm-cc/bluemonday"
+    "github.com/russross/blackfriday"
+)
+
+// ...
+unsafe := blackfriday.MarkdownCommon(input)
+html := bluemonday.UGCPolicy().SanitizeBytes(unsafe)
+```
+
+### Custom options
 
 If you want to customize the set of options, first get a renderer
 (currently either the HTML or LaTeX output engines), then use it to
@@ -76,7 +97,7 @@ dependencies and library versions.
 Features
 --------
 
-All features of upskirt are supported, including:
+All features of Sundown are supported, including:
 
 *   **Compatibility**. The Markdown v1.0.3 test suite passes with
     the `--tidy` option.  Without `--tidy`, the differences are
@@ -92,10 +113,9 @@ All features of upskirt are supported, including:
     known inputs that make it crash.  If you find one, please let me
     know and send me the input that does it.
 
-    NOTE: "safety" in this context means *runtime safety only*. It is
-    not bullet proof against JavaScript injections, though we're working
-    on it (https://github.com/russross/blackfriday/issues/11 tracks the
-    progress).
+    NOTE: "safety" in this context means *runtime safety only*. In order to
+    protect yourself agains JavaScript injection in untrusted content, see
+    [this example](https://github.com/russross/blackfriday#sanitize-untrusted-content).
 
 *   **Fast processing**. It is fast enough to render on-demand in
     most web applications without having to cache the output.
@@ -183,7 +203,7 @@ Other renderers
 Blackfriday is structured to allow alternative rendering engines. Here
 are a few of note:
 
-*   [github_flavored_markdown](https://godoc.org/github.com/shurcooL/go/github_flavored_markdown):
+*   [github_flavored_markdown](https://godoc.org/github.com/shurcooL/github_flavored_markdown):
     provides a GitHub Flavored Markdown renderer with fenced code block
     highlighting, clickable header anchor links.
 
@@ -209,7 +229,6 @@ Todo
 ----
 
 *   More unit testing
-*   Markdown pretty-printer output engine
 *   Improve unicode support. It does not understand all unicode
     rules (about what constitutes a letter, a punctuation symbol,
     etc.), so it may fail to detect word boundaries correctly in
@@ -219,37 +238,9 @@ Todo
 License
 -------
 
-Blackfriday is distributed under the Simplified BSD License:
-
-> Copyright © 2011 Russ Ross
-> All rights reserved.
-> 
-> Redistribution and use in source and binary forms, with or without
-> modification, are permitted provided that the following conditions
-> are met:
-> 
-> 1.  Redistributions of source code must retain the above copyright
->     notice, this list of conditions and the following disclaimer.
-> 
-> 2.  Redistributions in binary form must reproduce the above
->     copyright notice, this list of conditions and the following
->     disclaimer in the documentation and/or other materials provided with
->     the distribution.
-> 
-> THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-> "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-> LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-> FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
-> COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-> INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-> BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-> LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-> CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-> LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
-> ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-> POSSIBILITY OF SUCH DAMAGE.
+[Blackfriday is distributed under the Simplified BSD License](LICENSE.txt)
 
 
    [1]: http://daringfireball.net/projects/markdown/ "Markdown"
    [2]: http://golang.org/ "Go Language"
-   [3]: http://github.com/tanoku/upskirt "Upskirt"
+   [3]: https://github.com/vmg/sundown "Sundown"
