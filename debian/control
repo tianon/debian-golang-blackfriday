@@ -3,7 +3,8 @@ Section: devel
 Priority: extra
 Maintainer: Debian Go Packaging Team <pkg-go-maintainers@lists.alioth.debian.org>
 Uploaders: Tianon Gravi <admwiggin@gmail.com>,
- Martín Ferrari <tincho@debian.org>
+ Martín Ferrari <tincho@debian.org>,
+ Anthony Fok <foka@debian.org>
 Build-Depends: debhelper (>= 9), dh-golang, golang-go, golang-github-shurcool-sanitized-anchor-name-dev
 Standards-Version: 3.9.6
 Homepage: https://github.com/russross/blackfriday
