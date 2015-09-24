@@ -15,4 +15,4 @@ BUILDDIR := $(shell perl -w -MDebian::Debhelper::Buildsystem::golang -e \
 override_dh_auto_configure:
 	dh_auto_configure -O--buildsystem=golang
 	# Include test fixtures.
-	cp -av upskirtref/ $(BUILDDIR)/src/$(DH_GOPKG)/
+	cp -av testdata/ $(BUILDDIR)/src/$(DH_GOPKG)/
