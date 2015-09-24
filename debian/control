@@ -4,7 +4,7 @@ Priority: extra
 Maintainer: Debian Go Packaging Team <pkg-go-maintainers@lists.alioth.debian.org>
 Uploaders: Tianon Gravi <admwiggin@gmail.com>,
  Martín Ferrari <tincho@debian.org>
-Build-Depends: debhelper (>= 9), dh-golang, golang-go, golang-go.net-dev
+Build-Depends: debhelper (>= 9), dh-golang, golang-go
 Standards-Version: 3.9.6
 Homepage: https://github.com/russross/blackfriday
 Vcs-Git: git://anonscm.debian.org/pkg-go/packages/golang-blackfriday.git
@@ -12,7 +12,7 @@ Vcs-Browser: http://anonscm.debian.org/cgit/pkg-go/packages/golang-blackfriday.g
 
 Package: golang-blackfriday-dev
 Architecture: all
-Depends: golang-go.net-dev, ${misc:Depends}
+Depends: ${misc:Depends}
 Built-Using: ${misc:Built-Using}
 Description: Blackfriday: a markdown processor for Go
  Blackfriday (github.com/russross/blackfriday) is a Markdown processor
