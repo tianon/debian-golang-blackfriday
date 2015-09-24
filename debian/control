@@ -10,9 +10,12 @@ Homepage: https://github.com/russross/blackfriday
 Vcs-Git: git://anonscm.debian.org/pkg-go/packages/golang-blackfriday.git
 Vcs-Browser: http://anonscm.debian.org/cgit/pkg-go/packages/golang-blackfriday.git
 
-Package: golang-blackfriday-dev
+Package: golang-github-russross-blackfriday-dev
 Architecture: all
 Depends: ${misc:Depends}
+Conflicts: golang-blackfriday-dev
+Provides: golang-blackfriday-dev
+Replaces: golang-blackfriday-dev
 Description: Blackfriday: a markdown processor for Go
  Blackfriday (github.com/russross/blackfriday) is a Markdown processor
  implemented in Go. It is paranoid about its input (so you can safely feed it
