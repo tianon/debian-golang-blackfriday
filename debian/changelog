@@ -1,8 +1,19 @@
-golang-blackfriday (1.2+git20150720.80.8cec3a8-1) UNRELEASED; urgency=medium
+golang-blackfriday (1.2+git20150720.80.8cec3a8-1) unstable; urgency=medium
 
-  * New upstream snapshot.
+  * New upstream snapshot
+  * Refresh debian/gbp.conf
+  * Blackfriday's HTML sanitization code that used "code.google.com/p/go.net"
+    or "golang.org/x/net" have been removed
+     - Remove golang-go.net-dev from Build-Depends and Depends
+     - Remove debian/patches/golang.org-x-net.patch
+  * Add golang-github-shurcool-sanitized-anchor-name-dev to {Build-,}Depends
+  * Rename upskirtref/ to testdata/ in debian/rules as per upstream changes
+  * Remove Built-Using, which is unneeded for library, from debian/control
+  * Rename library package to golang-github-russross-blackfriday-dev;
+    Conflicts/Provides/Replaces the old golang-blackfriday-dev package
+  * Add myself as an uploader in debian/control  :-)
 
- -- Anthony Fok <foka@debian.org>  Wed, 23 Sep 2015 17:41:53 -0600
+ -- Anthony Fok <foka@debian.org>  Wed, 23 Sep 2015 20:01:24 -0600
 
 golang-blackfriday (1.2-2) unstable; urgency=medium
 
